@@ -1,1 +1,30 @@
-<p>users works!</p>
+<app-modal [isOpen]="showModal()" (onClose)="closeModal()">
+  <h2>Crear usuario</h2>
+  <form (submit)="createUser($event)">
+    <label for="">
+      Nombres completos
+      <input type="text" name="name" />
+    </label>
+    <label for="">
+      Correo
+      <input type="email" name="email" />
+    </label>
+    <app-principal-button [title]="'Crear'" />
+  </form>
+</app-modal>
+
+<div>
+  <app-principal-button [title]="'Crear Nuevo usuario'" (action)="openModal()"/>
+  <ul>
+    @for (user of users(); track $index) {
+      <li>
+        <p>
+          <i class="ri-admin-line"></i>
+          {{ user.name }}
+        </p>
+        <p>{{ user.email }}</p>
+        <app-principal-button [title]="'Ver transacciones'" />
+      </li>
+    }
+  </ul>
+</div>

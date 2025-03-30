@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
 import 'remixicon/fonts/remixicon.css';
+import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
