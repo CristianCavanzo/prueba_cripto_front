@@ -28,6 +28,23 @@ Instala las dependencias:
 npm install
 ```
 
+## **¿Cómo hacer pruebas?**
+
+Para completar cada uno de los requerimientos de la aplicación, sigue estos pasos:
+
+### **1. Pantalla de Usuarios**
+
+- La pantalla de usuarios es la primera pantalla del aplicativo.
+- Con el botón **"Crear nuevo usuario"**, puedes registrar un nuevo usuario.
+- Si ocurre un error, aparecerá un modal indicando el problema.
+- Las validaciones están en el backend: el correo debe ser válido y único.
+
+### **2. Pantalla de Transacciones**
+
+- Si no se ha seleccionado un usuario e intentas acceder a **Transacciones** desde el menú lateral izquierdo, no podrás crear nuevas transacciones (retiro o depósito); solo podrás visualizar las existentes.
+- Si seleccionas un usuario y accedes a sus transacciones, podrás crear un **retiro (Withdrawal)** o un **depósito (Deposit)**.
+- Para permitir un **retiro**, primero debe aprobarse un **depósito**. De lo contrario, aparecerá la alerta **"Insufficient funds"**.
+
 ## Estructura del Proyecto
 
 El proyecto está organizado de la siguiente manera:
