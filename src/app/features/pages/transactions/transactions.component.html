@@ -1,8 +1,10 @@
 <div class="content">
-  <app-principal-button
-    (action)="addModalCreateTransaction()"
-    [title]="'Create new Transaction'"
-  />
+  @if (idUser) {
+    <app-principal-button
+      (action)="addModalCreateTransaction()"
+      [title]="'Create new Transaction'"
+    />
+  }
 
   <app-table [headers]="headers">
     <ng-container>

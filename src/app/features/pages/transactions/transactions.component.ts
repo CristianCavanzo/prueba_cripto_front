@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PrincipalButtonComponent } from '@/shared/components/buttons/principal/principalButton.component';
 import { ModalComponent } from '@/shared/components/modal/modal.component';
+import { ErrorService } from './services/error.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-transactions',
@@ -21,6 +23,7 @@ import { ModalComponent } from '@/shared/components/modal/modal.component';
 export class TransactionsComponent {
   private transactionServices = inject(TransactionsService);
   private route = inject(ActivatedRoute);
+  private errorService = inject(ErrorService);
   idUser: number | null = null;
   transactions = signal<Transaction[]>([]);
   headers = ['ID', 'Amount', 'Date', 'Status', 'Approve Transaction'];
@@ -53,9 +56,7 @@ export class TransactionsComponent {
           )
         );
       },
-      error: (error) => {
-        console.error('Error approving transaction:', error);
-      },
+      error: (error) => {},
     });
   }
 
@@ -73,7 +74,6 @@ export class TransactionsComponent {
     const type = formData.get('type') as 'Deposit' | 'Withdrawal';
     this.transactionServices.createTransaction(amount, idUser, type).subscribe({
       next: (transaction) => {
-        console.log(transaction);
         this.transactions.update((prevTransactions) => [
           ...prevTransactions,
           transaction.data,
@@ -81,7 +81,10 @@ export class TransactionsComponent {
         this.closeModal();
       },
       error: (error) => {
-        console.error('Error creating transaction:', error);
+        const message =
+          error?.error?.data?.constraints || 'Error creating transaction';
+        this.errorService.setError(true);
+        this.errorService.setErrorMessage(message);
       },
     });
   }

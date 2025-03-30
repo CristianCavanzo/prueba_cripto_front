@@ -1,5 +1,10 @@
 <div class="app-container">
 
+  <app-modal [zposition]="true" [isOpen]="errorService.error()" (onClose)="errorService.clearError()">
+    <h2>Ha ocurrido un error</h2>
+    <p>{{ errorService.errorMessage() }}</p>
+  </app-modal>
+
   <div class="app-content">
     <aside class="app-sidebar" >
       <app-sidebar/>

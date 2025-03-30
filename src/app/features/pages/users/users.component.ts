@@ -1,11 +1,10 @@
 import { PrincipalButtonComponent } from '@/shared/components/buttons/principal/principalButton.component';
-import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
-import { UsersService } from './services/users.service';
 import { ModalComponent } from '@/shared/components/modal/modal.component';
 import { User } from '@/shared/models';
-import { RouterModule } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { ErrorService } from '../transactions/services/error.service';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -15,6 +14,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 })
 export class UsersComponent {
   private usersServices = inject(UsersService);
+  private errorService = inject(ErrorService);
   users = signal<User[]>([]);
   showModal = signal(false);
   ngOnInit() {
@@ -59,7 +59,10 @@ export class UsersComponent {
         this.closeModal();
       },
       error: (error) => {
-        console.error('Error creating user:', error);
+        const message =
+          error?.error?.data?.constraints || 'Error creating user';
+        this.errorService.setError(true);
+        this.errorService.setErrorMessage(message);
       },
     });
   }

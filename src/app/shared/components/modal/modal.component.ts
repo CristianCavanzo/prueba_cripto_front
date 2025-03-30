@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ModalComponent {
   @Input() isOpen: boolean = false; // Estado del modal
   @Output() onClose = new EventEmitter<void>(); // Evento cuando se cierra el modal
+  @Input() zposition?: boolean = false;
 
   close() {
     this.onClose.emit(); // Notifica al padre que se cerró el modal

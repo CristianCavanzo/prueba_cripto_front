@@ -28,3 +28,7 @@
   cursor: pointer;
   font-size: 20px;
 }
+
+.zposition{
+  z-index: 1000;
+}
