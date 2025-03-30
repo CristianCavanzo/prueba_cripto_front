@@ -1,0 +1,17 @@
+<nav>
+  <div>
+    <div>
+      <img src="assets/images/logo.png" alt="Logo" />
+    </div>
+    <p>Bienvenido</p>
+    <p>Usuario</p>
+  </div>
+  <ul>
+    @for(item of items; track $index) {
+      <app-item-list
+        [icon]="item.icon"
+        [name]="item.name"
+        [route]="item.route"></app-item-list>
+    }
+  </ul>
+</nav>
