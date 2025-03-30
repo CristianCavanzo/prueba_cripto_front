@@ -1,47 +1,57 @@
-<app-table [headers]="headers">
-  <ng-container>
-    @for (transaction of transactions(); track $index) {
-    <tr>
-      <td>{{ transaction.id }}</td>
-      <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.status.name }}</td>
-      <td>{{ transaction.createdAt | date : "YYYY/MM/dd" }}</td>
-      <td>
-        @if(transaction.status.name === 'Pending') {
-        <app-principal-button
-          (action)="approveTransaction(transaction.id)"
-          [title]="'Aprobar'"
-        />
-        }@else {
-        <p>
+<div class="content">
+  <app-principal-button
+    (action)="addModalCreateTransaction()"
+    [title]="'Create new Transaction'"
+  />
+
+  <app-table [headers]="headers">
+    <ng-container>
+      @for (transaction of transactions(); track $index) {
+      <tr>
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.createdAt | date : "YYYY/MM/dd" }}</td>
+        @if(transaction.status.name === 'Success') {
+        <p class="green notification">
+          {{ transaction.status.name }}
+        </p>
+        } @else if(transaction.status.name === 'Pending') {
+        <p class="orange notification">
           {{ transaction.status.name }}
         </p>
         }
-      </td>
-    </tr>
-    }
-  </ng-container>
-</app-table>
+        <td>
+          @if(transaction.status.name === 'Pending') {
+          <app-principal-button
+            (action)="approveTransaction(transaction.id)"
+            [title]="'Aprobar'"
+          />
+          }@else {
+          <p>
+            {{ transaction.status.name }}
+          </p>
+          }
+        </td>
+      </tr>
+      }
+    </ng-container>
+  </app-table>
 
-<app-principal-button
-  (action)="addModalCreateTransaction()"
-  [title]="'Create new Transaction'"
-/>
-
-<app-modal [isOpen]="showModal()" (onClose)="closeModal()">
-  <h2>Crear transaccion</h2>
-  <form (submit)="createTransaction($event, idUser)">
-    <label for="">
-      Type
-      <select name="type" id="">
-        <option value="Deposit">Deposit</option>
-        <option value="Withdrawal">Withdrawal</option>
-      </select>
-    </label>
-    <label for="">
-      Amount
-      <input type="text" name="amount" />
-    </label>
-    <app-principal-button className="secondary" [title]="'Crear'" />
-  </form>
-</app-modal>
+  <app-modal [isOpen]="showModal()" (onClose)="closeModal()">
+    <h2>Crear transaccion</h2>
+    <form (submit)="createTransaction($event, idUser)">
+      <label for="">
+        Type
+        <select name="type" id="">
+          <option value="Deposit">Deposit</option>
+          <option value="Withdrawal">Withdrawal</option>
+        </select>
+      </label>
+      <label for="">
+        Amount
+        <input type="text" name="amount" />
+      </label>
+      <app-principal-button className="secondary" [title]="'Crear'" />
+    </form>
+  </app-modal>
+</div>

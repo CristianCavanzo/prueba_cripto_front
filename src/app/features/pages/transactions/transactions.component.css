@@ -1,0 +1,14 @@
+.notification {
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: #fff;
+}
+.green {
+  background-color: #1e8637;
+}
+.red {
+  background-color: #dc3545;
+}
+.orange {
+  background-color: #da6b11;
+}

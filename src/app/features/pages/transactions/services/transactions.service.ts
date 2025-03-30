@@ -31,7 +31,7 @@ export class TransactionsService {
     idUser: number | null,
     type: 'Deposit' | 'Withdrawal'
   ) {
-    return this.http.post<ApiResponse<Transaction>>(`${this.apiUrl}/create`, {
+    return this.http.post<ApiResponse<Transaction>>(`${this.apiUrl}create`, {
       amount,
       user_id: idUser,
       type,
