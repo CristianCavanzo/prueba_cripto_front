@@ -26,3 +26,16 @@
   margin: 0;
 }
 
+@media (width <= 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+@media (width <= 450px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+}

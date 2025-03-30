@@ -150,10 +150,15 @@ table {
 }
 
 td {
-  padding: 8px 0;
+  padding: 8px 8px;
 }
 .content {
   display: flex;
   gap: 20px;
   flex-direction: column;
+}
+@media (width <= 345px) {
+  .app-container {
+    padding: 24px 12px;
+  }
 }

@@ -12,3 +12,10 @@
   max-height: calc(100vh - 60px);
   overflow: auto;
 }
+@media (width <= 700px) {
+  .app-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -26,7 +26,7 @@ export class TransactionsComponent {
   private errorService = inject(ErrorService);
   idUser: number | null = null;
   transactions = signal<Transaction[]>([]);
-  headers = ['ID', 'Amount', 'Date', 'Status', 'Approve Transaction'];
+  headers = ['ID', 'Amount', 'Date', 'Type', 'Status', 'Approve Transaction'];
   showModal = signal(false);
 
   ngOnInit() {

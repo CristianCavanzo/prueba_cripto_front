@@ -13,6 +13,7 @@
         <td>{{ transaction.id }}</td>
         <td>{{ transaction.amount }}</td>
         <td>{{ transaction.createdAt | date : "YYYY/MM/dd" }}</td>
+        <td>{{transaction.type.name}}</td>
         @if(transaction.status.name === 'Success') {
         <p class="green notification">
           {{ transaction.status.name }}

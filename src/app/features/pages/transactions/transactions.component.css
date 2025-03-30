@@ -12,3 +12,6 @@
 .orange {
   background-color: #da6b11;
 }
+.content {
+  min-width: 1000px;
+}
