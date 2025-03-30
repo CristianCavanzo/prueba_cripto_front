@@ -19,10 +19,12 @@
     @for (user of users(); track $index) {
       <li>
         <p>
-          <i class="ri-admin-line"></i>
           {{ user.name }}
         </p>
         <p>{{ user.email }}</p>
+        <p>
+          {{user.balance.amount | currency: 'USD' : 'symbol'}}
+        </p>
         <a [routerLink]="'/transactions/' + user.id" routerLinkActive="active">
           <app-principal-button [title]="'Ver transacciones'" />
         </a>

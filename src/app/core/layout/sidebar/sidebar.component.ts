@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ItemListComponent } from "./item-list/item-list.component";
+import { ItemListComponent } from './item-list/item-list.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +11,11 @@ import { ItemListComponent } from "./item-list/item-list.component";
 })
 export class SidebarComponent {
   items = [
-    { icon: 'icon1.png', route: '/', name: 'Home' },
-    { icon: 'icon2.png', route: '/transactions', name: 'About' },
+    { icon: 'ri-group-line', route: '/', name: 'Users' },
+    {
+      icon: 'ri-drag-move-2-line',
+      route: '/transactions',
+      name: 'Transactions',
+    },
   ];
 }

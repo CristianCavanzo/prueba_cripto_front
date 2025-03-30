@@ -6,6 +6,15 @@
       <td>{{ transaction.amount }}</td>
       <td>{{ transaction.status.name}}</td>
       <td>{{ transaction.createdAt  | date: 'YYYY/MM/dd' }}</td>
+      <td>
+        @if(transaction.status.name === 'Pending') {
+          <app-principal-button (action)="approveTransaction(transaction.id)" [title]="'Aprobar'" />
+        }@else {
+          <p>
+            {{ transaction.status.name }}
+          </p>
+        }
+      </td>
     </tr>
   }
   </ng-container>

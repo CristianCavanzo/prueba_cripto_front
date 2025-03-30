@@ -16,4 +16,13 @@ export class TransactionsService {
     console.log(url);
     return this.http.get<ApiResponse<Transaction[]>>(url);
   }
+
+  approveTransaction(id: number) {
+    return this.http.patch<ApiResponse<Transaction>>(
+      `${this.apiUrl}updateStatus/${id}`,
+      {
+        status: 'Success',
+      }
+    );
+  }
 }
