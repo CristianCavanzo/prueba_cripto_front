@@ -11,4 +11,8 @@ export const routes: Routes = [
     path: 'transactions',
     component: TransactionsComponent,
   },
+  {
+    path: 'transactions/:idUser',
+    component: TransactionsComponent,
+  },
 ];

@@ -23,7 +23,9 @@
           {{ user.name }}
         </p>
         <p>{{ user.email }}</p>
-        <app-principal-button [title]="'Ver transacciones'" />
+        <a [routerLink]="'/transactions/' + user.id" routerLinkActive="active">
+          <app-principal-button [title]="'Ver transacciones'" />
+        </a>
       </li>
     }
   </ul>

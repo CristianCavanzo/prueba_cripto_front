@@ -11,7 +11,9 @@ export class TransactionsService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.API_URL}/transactions/`;
   constructor() {}
-  getTransactions() {
-    return this.http.get<ApiResponse<Transaction[]>>(`${this.apiUrl}`);
+  getTransactions(id?: string | null) {
+    let url = `${this.apiUrl}${id ? id : ''}`;
+    console.log(url);
+    return this.http.get<ApiResponse<Transaction[]>>(url);
   }
 }

@@ -4,10 +4,16 @@ import { Component, inject, signal } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { ModalComponent } from '@/shared/components/modal/modal.component';
 import { User } from '@/shared/models';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, PrincipalButtonComponent, ModalComponent],
+  imports: [
+    CommonModule,
+    PrincipalButtonComponent,
+    ModalComponent,
+    RouterModule,
+  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
