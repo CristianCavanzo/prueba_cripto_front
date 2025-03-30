@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { ModalComponent } from '@/shared/components/modal/modal.component';
-import { User } from '@/models';
+import { User } from '@/shared/models';
 
 @Component({
   selector: 'app-users',

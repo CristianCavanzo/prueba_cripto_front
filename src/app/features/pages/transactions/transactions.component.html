@@ -1,1 +1,13 @@
-<p>transactions works!</p>
+<app-table [headers]="headers" >
+  <ng-container >
+  @for (transaction of transactions(); track $index) {
+    <tr>
+      <td>{{ transaction.id }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.status.name}}</td>
+      <td>{{ transaction.createdAt  | date: 'YYYY/MM/dd' }}</td>
+    </tr>
+  }
+
+  </ng-container>
+<app-table />
