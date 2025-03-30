@@ -19,3 +19,22 @@
   }
   </ng-container>
 <app-table />
+
+<app-principal-button (action)="addModalCreateTransaction()" [title]="'Create new Transaction'" />
+<app-modal [isOpen]="showModal()" (onClose)="closeModal()">
+  <h2>Crear usuario</h2>
+  <form (submit)="crateTransaction($event, idUser)">
+    <label for="">
+      Type
+      <select name="type" id="">
+        <option value="Deposit">Deposit</option>
+        <option value="Withdrawal">Withdrawal</option>
+      </select>
+    </label>
+    <label for="">
+      Amount
+      <input type="number" name="amount" />
+    </label>
+    <app-principal-button [title]="'Crear'" />
+  </form>
+</app-modal>

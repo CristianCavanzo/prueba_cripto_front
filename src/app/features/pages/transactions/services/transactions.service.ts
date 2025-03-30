@@ -11,7 +11,7 @@ export class TransactionsService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.API_URL}/transactions/`;
   constructor() {}
-  getTransactions(id?: string | null) {
+  getTransactions(id?: number | null) {
     let url = `${this.apiUrl}${id ? id : ''}`;
     console.log(url);
     return this.http.get<ApiResponse<Transaction[]>>(url);
@@ -24,5 +24,17 @@ export class TransactionsService {
         status: 'Success',
       }
     );
+  }
+
+  createTransaction(
+    amount: number,
+    idUser: number | null,
+    type: 'Deposit' | 'Withdrawal'
+  ) {
+    return this.http.post<ApiResponse<Transaction>>(`${this.apiUrl}/create`, {
+      amount,
+      user_id: idUser,
+      type,
+    });
   }
 }
