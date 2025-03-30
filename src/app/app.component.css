@@ -1,0 +1,11 @@
+.app-content {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+}
+.app-main {
+  background: #1a191e;
+  border: 1px solid #3c3a44;
+  border-radius: 12px;
+  min-height: calc(100vh - 60px);
+}

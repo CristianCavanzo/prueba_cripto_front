@@ -1,0 +1,24 @@
+a {
+  color: #585369;
+  text-decoration: none;
+}
+a.active {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+li {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 16px;
+}
+li:hover {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  color: #585369;
+}
+li:hover a {
+  color: #585369;
+  font-weight: 600;
+}

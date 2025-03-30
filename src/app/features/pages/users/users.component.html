@@ -9,26 +9,11 @@
       Correo
       <input type="email" name="email" />
     </label>
-    <app-principal-button [title]="'Crear'" />
+    <app-principal-button className="secondary" [title]="'Crear'" />
   </form>
 </app-modal>
 
 <div>
   <app-principal-button [title]="'Crear Nuevo usuario'" (action)="openModal()"/>
-  <ul>
-    @for (user of users(); track $index) {
-      <li>
-        <p>
-          {{ user.name }}
-        </p>
-        <p>{{ user.email }}</p>
-        <p>
-          {{user.balance.amount | currency: 'USD' : 'symbol'}}
-        </p>
-        <a [routerLink]="'/transactions/' + user.id" routerLinkActive="active">
-          <app-principal-button [title]="'Ver transacciones'" />
-        </a>
-      </li>
-    }
-  </ul>
+  <app-list-user [users]="users()"/>
 </div>

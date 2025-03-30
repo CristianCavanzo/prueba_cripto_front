@@ -10,5 +10,6 @@ import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  //
   title = 'prueba_front';
 }

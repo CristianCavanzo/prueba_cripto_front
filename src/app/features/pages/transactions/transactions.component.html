@@ -29,7 +29,7 @@
 />
 
 <app-modal [isOpen]="showModal()" (onClose)="closeModal()">
-  <h2>Crear usuario</h2>
+  <h2>Crear transaccion</h2>
   <form (submit)="createTransaction($event, idUser)">
     <label for="">
       Type
@@ -40,8 +40,8 @@
     </label>
     <label for="">
       Amount
-      <input type="number" name="amount" />
+      <input type="text" name="amount" />
     </label>
-    <app-principal-button [title]="'Crear'" />
+    <app-principal-button className="secondary" [title]="'Crear'" />
   </form>
 </app-modal>

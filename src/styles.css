@@ -1,4 +1,7 @@
-
+:root {
+  --primary-color: #151419;
+  --secondary-color: #fff;
+}
 @font-face {
   font-family: "Montserrat";
   src: url("./app/assets/Montserrat-Black.woff2") format("woff2"),
@@ -173,4 +176,23 @@ body {
 }
 .app-container {
   padding: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 300px;
+  & label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  & input,
+  & select {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    border: var(--primary-color) 1px solid;
+  }
 }

@@ -1,17 +1,20 @@
 <nav>
-  <div>
-    <div>
-      <img src="assets/images/logo.png" alt="Logo" />
+  <div class="sidebar-header">
+    <div class="sidebar-icon">
+      <i class="ri-group-2-fill"></i>
     </div>
-    <p>Bienvenido</p>
-    <p>Usuario</p>
+    <div>
+      <p class="sidebar-welcome">Bienvenido</p>
+      <p class="sidebar-user">Usuario</p>
+    </div>
   </div>
-  <ul>
+  <ul class="sidebar-list">
     @for(item of items; track $index) {
-      <app-item-list
-        [icon]="item.icon"
-        [name]="item.name"
-        [route]="item.route"></app-item-list>
+    <app-item-list
+      [icon]="item.icon"
+      [name]="item.name"
+      [route]="item.route"
+    ></app-item-list>
     }
   </ul>
 </nav>
