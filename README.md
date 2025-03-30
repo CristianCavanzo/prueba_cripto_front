@@ -1,61 +1,77 @@
-# PruebaFront
+# Documentación del Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+## Requisitos
 
-## Development server
+Para ejecutar este proyecto de Angular, asegúrate de tener instalado:
 
-To start a local development server, run:
+- **Node.js v22.14.0** o superior.
+- **Angular CLI** (se recomienda la última versión).
 
-```bash
+Puedes verificar las versiones instaladas con:
+
+```sh
+node -v
+ng version
+```
+
+Si no tienes Angular CLI, instálalo con:
+
+```sh
+npm install -g @angular/cli
+```
+
+## Instalación
+
+Instala las dependencias:
+
+```sh
+npm install
+```
+
+## Estructura del Proyecto
+
+El proyecto está organizado de la siguiente manera:
+
+```
+├── README.md
+├── angular.json
+├── package.json
+├── tsconfig.json
+├── src
+│   ├── app
+│   │   ├── app.component.ts
+│   │   ├── app.routes.ts
+│   │   ├── core
+│   │   │   └── layout
+│   │   │       └── sidebar
+│   │   ├── features
+│   │   │   └── pages
+│   │   │       ├── transactions
+│   │   │       ├── users
+│   │   ├── shared
+│   │   │   ├── components
+│   │   │   ├── models
+│   ├── environments
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.css
+```
+
+### Explicación
+
+- **`app/`**: Contiene los componentes principales del frontend.
+- **`core/layout/`**: Maneja el diseño base (sidebar, header, etc.).
+- **`features/pages/`**: Contiene las páginas principales como transacciones y usuarios.
+- **`shared/`**: Componentes reutilizables, modelos y servicios.
+- **`environments/`**: Configuraciones para diferentes entornos.
+- **`index.html` y `main.ts`**: Punto de entrada de la aplicación.
+
+## Ejecución del Proyecto
+
+Para iniciar el servidor de desarrollo, ejecuta:
+
+```sh
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-https://cdn.dribbble.com/userupload/14045284/file/original-9e1ee9c30a7a06031f0f793022450599.jpg?resize=752x&vertical=center
+Por defecto, la aplicación se ejecuta en `http://localhost:4200/`.

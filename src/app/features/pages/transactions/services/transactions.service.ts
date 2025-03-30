@@ -12,7 +12,7 @@ export class TransactionsService {
   private apiUrl = `${environment.API_URL}/transactions/`;
   constructor() {}
   getTransactions(id?: number | null) {
-    let url = `${this.apiUrl}${id ? id : ''}`;
+    let url = id ? `${this.apiUrl}${id}` : this.apiUrl;
     console.log(url);
     return this.http.get<ApiResponse<Transaction[]>>(url);
   }

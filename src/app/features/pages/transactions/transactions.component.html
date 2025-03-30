@@ -1,29 +1,36 @@
-<app-table [headers]="headers" >
-  <ng-container >
-  @for (transaction of transactions(); track $index) {
+<app-table [headers]="headers">
+  <ng-container>
+    @for (transaction of transactions(); track $index) {
     <tr>
       <td>{{ transaction.id }}</td>
       <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.status.name}}</td>
-      <td>{{ transaction.createdAt  | date: 'YYYY/MM/dd' }}</td>
+      <td>{{ transaction.status.name }}</td>
+      <td>{{ transaction.createdAt | date : "YYYY/MM/dd" }}</td>
       <td>
         @if(transaction.status.name === 'Pending') {
-          <app-principal-button (action)="approveTransaction(transaction.id)" [title]="'Aprobar'" />
+        <app-principal-button
+          (action)="approveTransaction(transaction.id)"
+          [title]="'Aprobar'"
+        />
         }@else {
-          <p>
-            {{ transaction.status.name }}
-          </p>
+        <p>
+          {{ transaction.status.name }}
+        </p>
         }
       </td>
     </tr>
-  }
+    }
   </ng-container>
-<app-table />
+</app-table>
 
-<app-principal-button (action)="addModalCreateTransaction()" [title]="'Create new Transaction'" />
+<app-principal-button
+  (action)="addModalCreateTransaction()"
+  [title]="'Create new Transaction'"
+/>
+
 <app-modal [isOpen]="showModal()" (onClose)="closeModal()">
   <h2>Crear usuario</h2>
-  <form (submit)="crateTransaction($event, idUser)">
+  <form (submit)="createTransaction($event, idUser)">
     <label for="">
       Type
       <select name="type" id="">

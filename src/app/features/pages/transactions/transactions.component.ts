@@ -20,16 +20,15 @@ import { ModalComponent } from '@/shared/components/modal/modal.component';
 })
 export class TransactionsComponent {
   private transactionServices = inject(TransactionsService);
+  private route = inject(ActivatedRoute);
   idUser: number | null = null;
   transactions = signal<Transaction[]>([]);
   headers = ['ID', 'Amount', 'Date', 'Status', 'Approve Transaction'];
   showModal = signal(false);
 
-  constructor(private route: ActivatedRoute) {}
-
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.idUser = Number(params.get('idUser')); // Obtiene el id si existe
+      this.idUser = Number(params.get('idUser'));
     });
 
     this.transactionServices.getTransactions(this.idUser).subscribe({
@@ -46,11 +45,11 @@ export class TransactionsComponent {
     this.transactionServices.approveTransaction(id).subscribe({
       next: (response) => {
         console.log('Transaction approved:', response);
-
-        // Actualizar el estado de la transacción aprobada
         this.transactions.update((current) =>
           current.map((transaction) =>
-            transaction.id === id ? { ...response.data } : transaction
+            transaction.id === id
+              ? { ...transaction, status: { name: 'Success' } }
+              : transaction
           )
         );
       },
@@ -66,7 +65,7 @@ export class TransactionsComponent {
   closeModal() {
     this.showModal.set(false);
   }
-  crateTransaction($event: Event, idUser: number | null) {
+  createTransaction($event: Event, idUser: number | null) {
     $event.preventDefault();
     const form = $event.target as HTMLFormElement;
     const formData = new FormData(form);
